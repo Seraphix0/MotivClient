@@ -13,19 +13,19 @@ public class ContactLogic implements IContactLogic {
     }
 
     public void addContact(Contact contact) {
-
+        contactRepository.create(contact);
     }
 
     public Contact getContact(int id) {
-        return null;
+        return contactRepository.read(id);
     }
 
     public void modifyContact(Contact contact){
-
+        contactRepository.update(contact);
     }
 
     public void removeContact(int id) {
-
+        contactRepository.delete(id);
     }
 
     public void callContact() {

@@ -3,6 +3,8 @@ package com.motiv.client.logic;
 import com.motiv.client.interfaces.IUserRepository;
 import com.motiv.client.models.User;
 
+import java.util.List;
+
 public class UserLogic {
 
     private static IUserRepository userRepository;
@@ -11,19 +13,23 @@ public class UserLogic {
         this.userRepository = userRepository;
     }
 
-    void addUser(User user) {
-
+    public void addUser(User user) {
+        userRepository.create(user);
     }
 
-    User getUser(int id) {
-        return null;
+    public User getUser(int id) {
+        return userRepository.read(id);
     }
 
-    void modifyUser(User user) {
-
+    public void modifyUser(User user) {
+        userRepository.update(user);
     }
 
-    void removeUser(int id) {
+    public void removeUser(int id) {
+        userRepository.delete(id);
+    }
 
+    public List<User> getAllUsers() {
+        return userRepository.readAll();
     }
 }
